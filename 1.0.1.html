@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>مستندات نسخه 1.0.1 - مفید نیوز</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+            background: #f0f4f9;
+            padding: 12px;
+            color: #1e293b;
+            direction: rtl;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 18px 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        }
+
+
+        /* ====== هدر ====== */
+        .header {
+            text-align: center;
+            padding-bottom: 18px;
+            border-bottom: 2px solid #e2e8f0;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 26px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #0f172a, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header .subtitle {
+            font-size: 14px;
+            color: #64748b;
+            margin-top: 6px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 12px;
+        }
+        .header .subtitle span {
+            background: #f1f5f9;
+            padding: 2px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            color: #1e293b;
+        }
+        .badge-version {
+            display: inline-block;
+            background: #3b82f6;
+            color: #fff;
+            padding: 2px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-top: 6px;
+        }
+        .team-desc {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 14px 16px;
+            margin-top: 14px;
+            border-right: 5px solid #3b82f6;
+            text-align: right;
+            font-size: 14px;
+            color: #334155;
+        }
+        .team-desc strong {
+            color: #0f172a;
+        }
+
+
+        /* ====== عنوان بخش‌ها (کشویی) ====== */
+        .section-title {
+            font-size: 20px;
+            font-weight: 800;
+            padding: 14px 16px;
+            border-radius: 14px;
+            margin: 24px 0 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
+            background: #eef2ff;
+            border-right: 5px solid #3b82f6;
+            transition: background 0.2s;
+        }
+        .section-title:hover {
+            background: #e2e8f0;
+        }
+        .section-title.security {
+            background: #fef2f2;
+            border-right-color: #ef4444;
+        }
+        .section-title.security:hover {
+            background: #fde8e8;
+        }
+        .section-title .icon {
+            font-size: 22px;
+            margin-left: 8px;
+        }
+        .section-title .arrow {
+            font-size: 18px;
+            transition: transform 0.3s;
+            color: #64748b;
+        }
+        .section-title .arrow.open {
+            transform: rotate(180deg);
+        }
+        .section-title .left-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+
+        /* ====== محتوای بخش (کارت‌ها) ====== */
+        .content-wrap {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+            padding: 0 4px;
+        }
+        .content-wrap.open {
+            max-height: 20000px;
+            padding: 12px 4px 6px 4px;
+        }
+
+
+        /* ====== کارت‌ها (جایگزین جدول) ====== */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .card-item {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 14px 16px;
+            border: 1px solid #e9edf2;
+            transition: 0.2s;
+        }
+        .card-item:hover {
+            background: #f1f5f9;
+        }
+        .card-item .card-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+        .card-item .card-feature {
+            font-weight: 800;
+            font-size: 16px;
+            color: #0f172a;
+        }
+        .card-item .card-badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 12px;
+            border-radius: 30px;
+            background: #dbeafe;
+            color: #1e40af;
+            white-space: nowrap;
+        }
+        .card-item .card-badge.security {
+            background: #fecaca;
+            color: #991b1b;
+        }
+        .card-item .card-detail {
+            font-size: 14px;
+            color: #334155;
+            margin-top: 2px;
+        }
+        .card-item .card-use {
+            font-size: 13px;
+            color: #475569;
+            margin-top: 4px;
+            padding-top: 4px;
+            border-top: 1px dashed #e2e8f0;
+        }
+        .card-item .card-use strong {
+            color: #0f172a;
+        }
+
+
+        /* ====== کارت‌های جمع‌بندی ====== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 24px 0 10px 0;
+        }
+        .stat-card {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 14px 10px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        .stat-card .number {
+            font-size: 28px;
+            font-weight: 900;
+            display: block;
+            line-height: 1.2;
+        }
+        .stat-card .label {
+            font-size: 13px;
+            color: #475569;
+            margin-top: 2px;
+        }
+        .stat-card.blue .number { color: #3b82f6; }
+        .stat-card.red .number { color: #ef4444; }
+        .stat-card.green .number { color: #10b981; }
+        .stat-card.purple .number { color: #8b5cf6; }
+
+
+        /* ====== فوتر ====== */
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #94a3b8;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 18px;
+            margin-top: 24px;
+        }
+
+
+        /* ====== ریسپانسیو برای موبایل ====== */
+        @media (max-width: 480px) {
+            body { padding: 8px; font-size: 15px; }
+            .container { padding: 12px 10px; }
+            .header h1 { font-size: 22px; }
+            .header .subtitle { font-size: 12px; gap: 4px 8px; }
+            .section-title { font-size: 17px; padding: 12px 14px; }
+            .card-item { padding: 12px 14px; }
+            .card-item .card-feature { font-size: 15px; }
+            .card-item .card-detail { font-size: 13px; }
+            .card-item .card-use { font-size: 12px; }
+            .stat-card .number { font-size: 24px; }
+            .team-desc { font-size: 13px; padding: 12px 14px; }
+        }
+        @media (max-width: 380px) {
+            .header h1 { font-size: 19px; }
+            .section-title { font-size: 15px; padding: 10px 12px; }
+            .card-item .card-feature { font-size: 14px; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+        }
+
+
+        /* ====== چاپ ====== */
+        @media print {
+            body { background: #fff; padding: 6px; font-size: 14px; }
+            .container { box-shadow: none; border: none; padding: 6px; }
+            .section-title { background: #eef2ff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .section-title.security { background: #fef2f2 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .content-wrap { max-height: none !important; overflow: visible !important; padding: 10px 0 !important; }
+            .content-wrap.open { max-height: none !important; }
+            .section-title .arrow { display: none; }
+            .card-item { background: #f8fafc !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .stat-card { background: #f8fafc !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .header h1 { -webkit-text-fill-color: #0f172a; color: #0f172a; background: none; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+
+    <!-- ====== HEADER ====== -->
+    <div class="header">
+        <h1>📋 مستندات نسخه 1.0.1</h1>
+        <div class="subtitle">
+            <span>🤖 ربات و پنل مدیریت مفید نیوز</span>
+            <span>📅 ژوئن ۲۰۲۶</span>
+            <span>✅ پایدار</span>
+        </div>
+        <div class="badge-version">نسخه v1.0.1</div>
+        <div class="team-desc">
+            <strong>📰 درباره تیم مفید نیوز:</strong>
+            تیم مفید نیوز یک <strong>کانال خبری</strong> در <strong>اپلیکیشن بله</strong> است که اخبار روز، گزارش‌های تحلیلی و محتوای متنوع در حوزه‌های سیاسی، اقتصادی، اجتماعی و فرهنگی تولید می‌کند. این مستندات مربوط به ربات و پنل مدیریت این کانال است.
+        </div>
+    </div>
+
+
+    <!-- ====== بخش اول: قابلیت‌های اصلی ====== -->
+    <div class="section-title" onclick="toggleContent('mainContent')">
+        <div class="left-group">
+            <span class="icon">🚀</span>
+            <span>قابلیت‌های اصلی (۲۸ مورد)</span>
+        </div>
+        <span class="arrow open" id="arrow-main">▲</span>
+    </div>
+    <div class="content-wrap open" id="mainContent">
+        <div class="card-grid">
+            <!-- ردیف‌ها به صورت کارت -->
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱. دستور /start</span><span class="card-badge">ربات بله</span></div><div class="card-detail">منوی اصلی با دکمه‌های سریع برای دسترسی به بخش‌های مختلف</div><div class="card-use"><strong>کاربرد:</strong> آشنایی کاربران با امکانات ربات</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۲. ارسال پیام به مدیریت</span><span class="card-badge">ربات بله</span></div><div class="card-detail">کاربران می‌توانند پیام خود را ارسال کنند و مدیر بلاافاصله مطلع شود</div><div class="card-use"><strong>کاربرد:</strong> ارتباط مستقیم با تیم پشتیبانی</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۳. قرعه‌کشی</span><span class="card-badge">ربات بله</span></div><div class="card-detail">کاربران با یوزرنیم می‌توانند در قرعه‌کشی شرکت کنند و مدیر برنده را انتخاب کند</div><div class="card-use"><strong>کاربرد:</strong> برگزاری مسابقات و جوایز</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۴. پنل مدیریت درون‌برنامه‌ای</span><span class="card-badge">ربات بله</span></div><div class="card-detail">مدیر با وارد کردن رمز، از طریق خود بله به ابزارهای مدیریتی دسترسی دارد</div><div class="card-use"><strong>کاربرد:</strong> مدیریت بدون نیاز به مرورگر</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۵. ارسال همگانی (برودکست)</span><span class="card-badge">ربات بله</span></div><div class="card-detail">ارسال یک پیام به تمام کاربران ثبت‌شده</div><div class="card-use"><strong>کاربرد:</strong> اخبار و اطلاعیه‌های عمومی</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۶. پاسخ اختصاصی</span><span class="card-badge">ربات بله</span></div><div class="card-detail">ارسال پیام خصوصی به یک کاربر مشخص</div><div class="card-use"><strong>کاربرد:</strong> پشتیبانی و پیگیری مشکلات فردی</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۷. بلاک و رفع بلاک</span><span class="card-badge">ربات بله</span></div><div class="card-detail">مدیر می‌تواند دسترسی کاربران متخلف را مسدود یا آزاد کند</div><div class="card-use"><strong>کاربرد:</strong> کنترل اسپم و رفتارهای نامناسب</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۸. لیست کاربران</span><span class="card-badge">ربات بله</span></div><div class="card-detail">نمایش لیست کاربران با صفحه‌بندی ۱۰ تایی</div><div class="card-use"><strong>کاربرد:</strong> بررسی آمار و شناسه‌های کاربران</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۹. محدودیت ارسال</span><span class="card-badge">ربات بله</span></div><div class="card-detail">هر کاربر در دقیقه فقط ۵ پیام می‌تواند ارسال کند</div><div class="card-use"><strong>کاربرد:</strong> جلوگیری از اسپم و فشار به سرور</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۰. ثبت خودکار کاربران</span><span class="card-badge">ربات بله</span></div><div class="card-detail">اولین بار که کاربر از ربات استفاده می‌کند، اطلاعاتش ذخیره می‌شود</div><div class="card-use"><strong>کاربرد:</strong> داشتن لیست مخاطبان برای اطلاع‌رسانی‌های بعدی</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۱. ورود دو مرحله‌ای</span><span class="card-badge">پنل مدیریت وب</span></div><div class="card-detail">ورود با رمز مدیریت یا کد یکبارمصرف با دسترسی محدود</div><div class="card-use"><strong>کاربرد:</strong> امنیت بالا و امکان همکاری با دیگران بدون دادن رمز اصلی</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۲. داشبورد لحظه‌ای</span><span class="card-badge">پنل مدیریت وب</span></div><div class="card-detail">نمایش آمار پیام‌ها، کاربران، درخواست‌های روز و نمودار ترافیک ساعتی</div><div class="card-use"><strong>کاربرد:</strong> پایش سلامت و عملکرد ربات</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۳. پیام‌های ناشناس وب</span><span class="card-badge">پنل مدیریت وب</span></div><div class="card-detail">مشاهده پیام‌های ارسال‌شده از فرم وب به همراه اطلاعات دستگاه و آی‌پی</div><div class="card-use"><strong>کاربرد:</strong> بررسی بازخوردهای ناشناس</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۴. مدیریت کاربران و پیام‌ها</span><span class="card-badge">پنل مدیریت وب</span></div><div class="card-detail">نمایش لیست کامل کاربران با وضعیت و امکان حذف پیام‌ها</div><div class="card-use"><strong>کاربرد:</strong> مدیریت جامع داده‌ها</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۵. روشن/خاموش کردن ربات</span><span class="card-badge">پنل مدیریت وب</span></div><div class="card-detail">فعال یا غیرفعال کردن کل ربات در مواقع ضروری</div><div class="card-use"><strong>کاربرد:</strong> تعمیرات و خاموشی اضطراری</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۶. تولید کد OTP</span><span class="card-badge">پنل مدیریت وب</span></div><div class="card-detail">ساخت کد ۶ رقمی موقت برای دسترسی مهمانان</div><div class="card-use"><strong>کاربرد:</strong> دسترسی موقت برای همکاران</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۷. فرم پیام ناشناس</span><span class="card-badge">وب‌سایت عمومی</span></div><div class="card-detail">کاربران بدون لاگین می‌توانند پیام بفرستند و آی‌پی آن‌ها ذخیره می‌شود</div><div class="card-use"><strong>کاربرد:</strong> دریافت پیشنهادات و انتقادات</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۸. نوتیفیکیشن به مدیر</span><span class="card-badge">وب‌سایت عمومی</span></div><div class="card-detail">به‌محض ارسال پیام از وب، مدیر در بله مطلع می‌شود</div><div class="card-use"><strong>کاربرد:</strong> واکنش سریع به پیام‌های دریافتی</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۹. دریافت پیام‌های ناشناس (JSON)</span><span class="card-badge">API</span></div><div class="card-detail">خروجی JSON از پیام‌های فرم وب</div><div class="card-use"><strong>کاربرد:</strong> اتصال به اپلیکیشن‌های دیگر</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۲۰. دریافت کاربران و پیام‌ها (JSON)</span><span class="card-badge">API</span></div><div class="card-detail">دسترسی به لیست کاربران و پیام‌ها از طریق API</div><div class="card-use"><strong>کاربرد:</strong> تحلیل داده و گزارش‌گیری</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۲۱. ارسال پاسخ و برودکست از طریق API</span><span class="card-badge">API</span></div><div class="card-detail">امکان ارسال پیام از ابزارهای اتوماسیون</div><div class="card-use"><strong>کاربرد:</strong> یکپارچه‌سازی با Zapier و Make</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۲۲. مدیریت بلاک از طریق API</span><span class="card-badge">API</span></div><div class="card-detail">امکان بلاک و آنبلاک کاربران از راه دور</div><div class="card-use"><strong>کاربرد:</strong> کنترل دسترسی از سایر سامانه‌ها</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۲۳. ذخیره‌سازی امن داده‌ها</span><span class="card-badge">زیرساخت و امنیت</span></div><div class="card-detail">داده‌ها با مکانیزم قفل‌گذاری از تداخل همزمان محافظت می‌شوند</div><div class="card-use"><strong>کاربرد:</strong> تضمین یکپارچگی اطلاعات در ترافیک بالا</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۲۴. پشتیبانی از HTTPS</span><span class="card-badge">زیرساخت و امنیت</span></div><div class="card-detail">ارتباطات با استفاده از گواهی‌های معتبر رمزنگاری می‌شوند</div><div class="card-use"><strong>کاربرد:</strong> جلوگیری از رهگیری اطلاعات</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۲۵. تاریخ و ساعت شمسی</span><span class="card-badge">زیرساخت و امنیت</span></div><div class="card-detail">نمایش زمان پیام‌ها بر اساس تقویم ایران</div><div class="card-use"><strong>کاربرد:</strong> سازگاری با کاربران ایرانی</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۲۶. ثبت خطاها</span><span class="card-badge">زیرساخت و امنیت</span></div><div class="card-detail">خطاهای سیستمی به‌طور خودکار برای بررسی ذخیره می‌شوند</div><div class="card-use"><strong>کاربرد:</strong> عیب‌یابی سریع</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۲۷. محدودیت زمان پاسخگویی</span><span class="card-badge">زیرساخت و امنیت</span></div><div class="card-detail">درخواست‌های بی‌پاسخ پس از ۱۰ ثانیه قطع می‌شوند</div><div class="card-use"><strong>کاربرد:</strong> جلوگیری از اشغال منابع</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۲۸. دریافت رویدادهای بله (Webhook)</span><span class="card-badge">زیرساخت و امنیت</span></div><div class="card-detail">ربات بدون نیاز به چک‌کردن مداوم، رویدادها را به‌صورت لحظه‌ای دریافت می‌کند</div><div class="card-use"><strong>کاربرد:</strong> پاسخ‌دهی سریع و کم‌مصرف</div></div>
+        </div>
+    </div>
+
+
+    <!-- ====== بخش دوم: قابلیت‌های امنیتی ====== -->
+    <div class="section-title security" onclick="toggleContent('securityContent')">
+        <div class="left-group">
+            <span class="icon">🛡️</span>
+            <span>قابلیت‌های امنیتی (۲۰ مورد)</span>
+        </div>
+        <span class="arrow open" id="arrow-security">▲</span>
+    </div>
+    <div class="content-wrap open" id="securityContent">
+        <div class="card-grid">
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱. رمزگذاری کوکی</span><span class="card-badge security">احراز هویت</span></div><div class="card-detail">اطلاعات ورود به‌صورت رمزگذاری‌شده در کوکی ذخیره می‌شود</div><div class="card-use"><strong>کاربرد:</strong> جلوگیری از سرقت اطلاعات ورود</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۲. تولید توکن امن</span><span class="card-badge security">احراز هویت</span></div><div class="card-detail">توکن‌های دسترسی با الگوریتم‌های غیرقابل پیش‌بینی ساخته می‌شوند</div><div class="card-use"><strong>کاربرد:</strong> جلوگیری از حدس زدن کدهای دسترسی</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۳. کوکی‌های امن</span><span class="card-badge security">احراز هویت</span></div><div class="card-detail">کوکی‌ها با قوانین HttpOnly و SameSite=Strict تنظیم می‌شوند</div><div class="card-use"><strong>کاربرد:</strong> محافظت در برابر XSS و CSRF</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۴. سطوح مختلف دسترسی</span><span class="card-badge security">کنترل دسترسی</span></div><div class="card-detail">کاربران عادی و مدیران دسترسی‌های متفاوتی دارند</div><div class="card-use"><strong>کاربرد:</strong> مدیریت دقیق مجوزها</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۵. لیست سیاه کاربران</span><span class="card-badge security">کنترل دسترسی</span></div><div class="card-detail">امکان مسدودسازی کاربران متخلف</div><div class="card-use"><strong>کاربرد:</strong> کنترل اسپم و سوءاستفاده</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۶. قطع اضطراری</span><span class="card-badge security">کنترل دسترسی</span></div><div class="card-detail">امکان غیرفعال کردن کل ربات در شرایط بحرانی</div><div class="card-use"><strong>کاربرد:</strong> واکنش سریع به حملات</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۷. اعتبارسنجی ورودی</span><span class="card-badge security">امنیت ورودی</span></div><div class="card-detail">تمام ورودی‌ها از نظر نوع و محتوا بررسی می‌شوند</div><div class="card-use"><strong>کاربرد:</strong> جلوگیری از تزریق کد مخرب</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۸. بررسی خالی نبودن</span><span class="card-badge security">امنیت ورودی</span></div><div class="card-detail">اطلاعات خالی یا ناقص پردازش نمی‌شوند</div><div class="card-use"><strong>کاربرد:</strong> جلوگیری از خطا و سوءاستفاده</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۹. جلوگیری از XSS</span><span class="card-badge security">امنیت خروجی</span></div><div class="card-detail">محتوای نمایش‌داده‌شده در پنل از کدهای مخرب پاک‌سازی می‌شود</div><div class="card-use"><strong>کاربرد:</strong> محافظت از مدیر در برابر حملات تزریق</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۰. اعتبارسنجی آی‌پی</span><span class="card-badge security">امنیت خروجی</span></div><div class="card-detail">تنها آی‌پی معتبر از هدرها استخراج می‌شود</div><div class="card-use"><strong>کاربرد:</strong> جلوگیری از جعل آی‌پی</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۱. ارتباطات رمزنگاری‌شده (HTTPS)</span><span class="card-badge security">امنیت شبکه</span></div><div class="card-detail">همه ارتباطات با گواهی معتبر رمز می‌شوند</div><div class="card-use"><strong>کاربرد:</strong> جلوگیری از شنود ارتباطات</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۲. محدودیت زمان درخواست</span><span class="card-badge security">امنیت شبکه</span></div><div class="card-detail">درخواست‌های خارج از زمان مشخص، باطل می‌شوند</div><div class="card-use"><strong>کاربرد:</strong> جلوگیری از حملات کند (Slowloris)</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۳. قفل‌گذاری همزمان</span><span class="card-badge security">امنیت داده‌ها</span></div><div class="card-detail">از تداخل چند درخواست هم‌زمان روی داده‌ها جلوگیری می‌شود</div><div class="card-use"><strong>کاربرد:</strong> حفظ یکپارچگی اطلاعات</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۴. حذف خودکار داده‌های قدیمی</span><span class="card-badge security">امنیت داده‌ها</span></div><div class="card-detail">اطلاعات تاریخ‌گذشته به‌طور خودکار پاک می‌شوند</div><div class="card-use"><strong>کاربرد:</strong> کاهش حجم داده و سطح حمله</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۵. ثبت خطاها</span><span class="card-badge security">مدیریت خطا</span></div><div class="card-detail">همه خطاها برای بررسی ذخیره می‌شوند</div><div class="card-use"><strong>کاربرد:</strong> تشخیص حملات و خرابی‌ها</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۶. ذخیره اطلاعات دستگاه</span><span class="card-badge security">مدیریت خطا</span></div><div class="card-detail">در صورت نیاز، اطلاعات دستگاه و آی‌پی کاربر ثبت می‌شود</div><div class="card-use"><strong>کاربرد:</strong> ردیابی کاربران مخرب</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۷. محدودیت تعداد درخواست</span><span class="card-badge security">امنیت جلسه</span></div><div class="card-detail">هر کاربر تنها تعداد مشخصی درخواست در دقیقه دارد</div><div class="card-use"><strong>کاربرد:</strong> جلوگیری از حملات سنگین</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۸. انقضای مراحل کاری</span><span class="card-badge security">امنیت جلسه</span></div><div class="card-detail">مراحل نیمه‌تمام پس از مدتی از سیستم حذف می‌شوند</div><div class="card-use"><strong>کاربرد:</strong> جلوگیری از سوءاستفاده از جلسات ناتمام</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۱۹. احراز هویت APIها</span><span class="card-badge security">امنیت API</span></div><div class="card-detail">دسترسی به APIها نیاز به تأیید هویت دارد</div><div class="card-use"><strong>کاربرد:</strong> جلوگیری از دسترسی غیرمجاز</div></div>
+            <div class="card-item"><div class="card-header"><span class="card-feature">۲۰. محدودیت دسترسی مهمانان</span><span class="card-badge security">امنیت API</span></div><div class="card-detail">کاربران مهمان فقط به بخش‌های خواندنی دسترسی دارند</div><div class="card-use"><strong>کاربرد:</strong> جلوگیری از تغییرات غیرمجاز</div></div>
+        </div>
+    </div>
+
+
+    <!-- ====== جمع‌بندی آماری ====== -->
+    <div class="stats-grid">
+        <div class="stat-card blue"><span class="number">۲۸</span><span class="label">🚀 قابلیت اصلی</span></div>
+        <div class="stat-card red"><span class="number">۲۰</span><span class="label">🛡️ مکانیسم امنیتی</span></div>
+        <div class="stat-card green"><span class="number">۴۸</span><span class="label">📊 مجموع کل</span></div>
+        <div class="stat-card purple"><span class="number">۵</span><span class="label">📁 دسته‌بندی</span></div>
+    </div>
+
+
+    <!-- ====== فوتر ====== -->
+    <div class="footer">
+        <p>📄 سند فنی مربوط به نسخه <strong>v1.0.1</strong> — تمامی حقوق برای <strong>رسانه مفید نیوز</strong> محفوظ است.</p>
+        <p style="font-size: 11px; margin-top: 4px;">تولید شده در ژوئن ۲۰۲۶ — جهت استفاده داخلی و ارائه به تیم توسعه</p>
+    </div>
+
+
+</div>
+
+
+<script>
+    function toggleContent(contentId) {
+        const wrap = document.getElementById(contentId);
+        const arrow = document.getElementById('arrow-' + contentId.replace('Content', ''));
+        if (wrap.classList.contains('open')) {
+            wrap.classList.remove('open');
+            arrow.classList.remove('open');
+            arrow.textContent = '▼';
+        } else {
+            wrap.classList.add('open');
+            arrow.classList.add('open');
+            arrow.textContent = '▲';
+        }
+    }
+</script>
+</body>
+</html>
